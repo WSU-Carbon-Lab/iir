@@ -5,7 +5,7 @@ edition = "2021"
 license = "GPL-2.0"
 name = "ipac"
 repository = "https://github.com/WSU-Carbon-Lab/iir/tree/main"
-version = "0.1.2"
+version = "0.1.3"
 website = "https://docs.rs/crate/iir/latest"
 
 [dependencies]
