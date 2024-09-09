@@ -53,11 +53,13 @@ fn main() -> Result<()> {
 // Install procedure files from Git or local path
 fn install_procedure_files(repo_path: &str) -> Result<()> {
     // Determine the path to the .igor directory in the user's home folder
-    let repo_dir = if is_git_url(repo_path) {
+    let repo = if is_git_url(repo_path) {
         clone_repository_into_igor(repo_path)?
     } else {
         Path::new(repo_path).to_path_buf()
     };
+
+    let repo_dir = repo.canonicalize()?;
 
     // Verify folder structure
     let user_dir = repo_dir.join("user");
@@ -88,7 +90,7 @@ fn install_procedure_files(repo_path: &str) -> Result<()> {
 
 // Find the highest version of Igor Pro installed on the system
 fn find_highest_igor_version() -> Result<String> {
-    let igor_dir = Path::new("C:\\Program Files\\WaveMetrics");
+    let igor_dir = Path::new("C:/Program Files/WaveMetrics");
     let versions: Vec<_> = fs::read_dir(igor_dir)?
         .filter_map(|entry| entry.ok())
         .filter(|entry| entry.path().is_dir())
