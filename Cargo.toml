@@ -1,0 +1,10 @@
+[package]
+edition = "2021"
+name = "iir"
+version = "0.1.0"
+
+[dependencies]
+anyhow = "1.0.87"
+clap = {version = "4.5.17", features = ["derive"]}
+dirs = "5.0.1"
+git2 = "0.19.0"
