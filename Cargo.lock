@@ -199,7 +199,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "iir"
+name = "ipac"
 version = "0.1.1"
 dependencies = [
  "anyhow",
